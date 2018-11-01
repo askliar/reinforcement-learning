@@ -1,2 +1,2 @@
 # reinforcement-learning
-Assignments for Reinforcement Learning @ UvA
+Assignments for Reinforcement Learning course @ UvA
