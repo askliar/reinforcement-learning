@@ -1,0 +1,98 @@
+\documentclass{exam}
+\input{head}
+\usepackage{inputenc}
+\title{Reinforcement Learning - Homework 1} \date{deadline: November 16, 2018}
+\author{Andrii Skliar, 11636785\\ Gabriele Bani, 11636758}
+
+\begin{document}
+\maketitle 
+
+% \fbox{
+%   \parbox{0.8\textwidth}{
+%      During the process of solving the homework problems, I have collaborated with the following colleagues: \\\\
+%     % LIST ALL THE COLLABORATORS HERE!
+%     \begin{tabular}{c c c c}
+%         Gabriele Bani & Gabriele Cesa & Davide Belli & Pascal Esser\\
+%         Gautier Dagan & & &
+%         % more people? put them here:
+%         %  &   &   
+%   \end{tabular}\\\\
+%   \textit{\small NB: credits for the Latex-format go to Iris Verweij, 2nd year MSc AI Student}.
+%   }
+% }
+
+% \vspace{0.8cm}
+
+%------------------------------
+% Problem 1
+
+\begin{problem}[Exploration]
+\ \newline
+\begin{enumerate}
+    \item In $\epsilon$-greedy action-selection for the case of n actions, what is the probability of selecting the greedy action?
+    \begin{solutionorlines}[2in]
+        Probability of selecting the greedy action is $1 - \epsilon$.
+    \end{solutionorlines}
+    \item Consider a 3-armed bandit problem with actions 1, 2, 3. If we use $\epsilon$-greedy action-selection, initialization at 0, and sample-average action-value estimates, which of the following sequence of actions are certain to be the result of exploration? $A_1 = 1, R_1 = −1, A_2 = 2, R_2 = 1, A_3 = 2, R_3 = −2, A_4 = 2, R_4 = 2, A_5 = 3, R_5 = 1$.
+    \begin{solutionorlines}[2in]
+        Actions $A_4, A_5$ are results of exploration. This can be seen by calculating average action-value estimates at each timestep and seeing when the action taken is not the one that yields best estimates.
+    \end{solutionorlines}
+    \item You are trying to find the optimal policy for a two-armed bandit. You try two approaches: in the pessimistic approach, you initialize all action-values at $-5$, and in the optimistic approach you initialize all action-values at $+5$. One arm gives a reward of $+1$, one arm gives a reward of $-1$. Using a greedy policy to choose actions, compute the resulting Q-values for both actions after three interactions with the environment. In case of a tie between two Q-values, break the tie at random.
+    \begin{solutionorlines}[2in]
+    We assume that arm $A_1$ gives reward of $+1$ and arm $A_2$ gives reward of $-1$.\\
+    \begin{center}
+    \def\arraystretch{1.5}
+    \begin{tabular}{|c|c|c|l|}
+    \hline
+    Step & $Q_1 (+1)$ & $Q_2 (-1)$ & Action Taken \\ \hline
+    0 & $-5$ & $-5$ & \begin{tabular}[c]{@{}l@{}}All action values are the same, select arm randomly. \\ Assume, $Q_1$ has been selected.\end{tabular} \\ \hline
+    1 & $1$ & $-5$ & Greedily choose $Q_1$ \\ \hline
+    2 & $1$ & $-5$ & Greedily choose $Q_1$ \\ \hline
+    3 & $1$ & $-5$ & \multicolumn{1}{c|}{} \\ \hline
+    \end{tabular}
+    \end{center}
+    \newpage
+    
+    \begin{center}
+    \def\arraystretch{1.5}
+    \begin{tabular}{|c|c|c|l|}
+    \hline
+    Step & $Q_1 (+1)$ & $Q_2 (-1)$ & Action Taken \\ \hline
+    0 & $5$ & $5$ & \begin{tabular}[c]{@{}l@{}}All action values are the same, select arm randomly. \\ Assume, $Q_1$ has been selected.\end{tabular} \\ \hline
+    1 & $1$ & $5$ & Greedily choose $Q_2$ \\ \hline
+    2 & $1$ & $-1$ & Greedily choose $Q_1$ \\ \hline
+    3 & $1$ & $-1$ & \multicolumn{1}{c|}{} \\ \hline
+    \end{tabular}
+    \end{center}
+    
+    \end{solutionorlines}
+    
+    \begin{centering}
+    \begin{table}[]
+    
+    \end{table}
+    \end{centering}
+    
+    \item Which initialization leads to a higher (undiscounted) return? What if you had broken the tie diﬀerently?
+    \begin{solutionorlines}[2in]
+        Pessimistic initialization leads to higher return because in this case it will lead to pure exploitation without any exploration. However, if we would break tie choosing $Q_2$ in the first step, we would never choose $Q_1$ thus getting only negative rewards. 
+        Optimistic initialization, on the other hand, will lead to the same return even with any break in the first step (at least for the first 3 steps). Asymptotically, its performance should also be better due to the fact described in the next part of the question. 
+    \end{solutionorlines}
+    \item Which initialization leads to a better estimation of the Q-values?
+    \begin{solutionorlines}[2in]
+        Optimistic initialization leads to a better estimation of the Q-values as, unlike pessimistic initialization, it allows for exploration and not just pure exploitation strategy. Pessimistic initialization asymptotically can only lead to a good estimation of a Q-value of a single hand (the one chosen first), while optimistic initialization can asymptotically lead to a good estimation of all Q-values.
+    \end{solutionorlines}
+    
+    \item Explain why one of the two initialization methods is better for exploration.
+    \begin{solutionorlines}[2in]
+        Optimistic initialization is better for exploration due to the fact that it makes initial Q-value larger than any possible action-value, so after taking any action, greedy policy forces us to use other, not yet explored actions as their action-value is higher. At the same time, pessimistic initialization will choose the same action at all timesteps. It is due to the fact that all the initial action-values are smaller than then action-value of an action chosen at the first timestep and will enforce that only this action will be chosen at any future timestep.
+    \end{solutionorlines}
+\end{enumerate}
+
+\end{problem}
+
+%--------------------------------------
+
+\bibliographystyle{plain}
+\bibliography{bibliography}
+\end{document}
