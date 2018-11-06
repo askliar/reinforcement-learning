@@ -73,7 +73,7 @@
     \end{table}
     \end{centering}
     
-    \item Which initialization leads to a higher (undiscounted) return? What if you had broken the tie diﬀerently?
+    \item Which initialization leads to a higher (undiscounted) return? What if you had broken the tie differently?
     \begin{solutionorlines}[2in]
         Pessimistic initialization leads to higher return because in this case it will lead to pure exploitation without any exploration. However, if we would break tie choosing $Q_2$ in the first step, we would never choose $Q_1$ thus getting only negative rewards. 
         Optimistic initialization, on the other hand, will lead to the same return even with any break in the first step (at least for the first 3 steps). Asymptotically, its performance should also be better due to the fact described in the next part of the question. 
@@ -92,6 +92,144 @@
 \end{problem}
 
 %--------------------------------------
+
+\begin{problem}[Dynamic Programming]
+\ \newline
+\begin{enumerate}
+    \item Write the value, $\nu^{\pi}(s)$, of a state $s$ under policy $\pi$, in terms of $\pi$ and $q^{\pi}(s,a)$. Write down both the stochastic and the deterministic policy case.
+    \begin{solutionorlines}[2in]
+    \begin{align*}
+        \nu^{\pi}(s) &=\sum_a \pi(a|s) \sum_{s', r} p(s', r|s, a) [r + \gamma \nu^{\pi}(s')]\\
+        &= \sum_a \pi(a|s) q^{\pi}(s,a) \tag{stochastic case}\\
+        &= q^{\pi}(s, a') \tag{deterministic case with action $a'$}
+    \end{align*}
+    \end{solutionorlines}
+    \item In Policy Iteration, we first evaluate the policy by computing its value function, and then update it using a Policy Improvement step. You will now change Policy Iteration as given on page 80 of the book to compute action-values. First give the new policy evaluation update in terms of $Q^{\pi}(s, a)$ instead of $V^{\pi}(s)$. Note that Policy Improvement uses deterministic policies.
+    \begin{solutionorlines}[2in]
+    \ \\
+    Policy Evaluation\\
+    Loop:
+    \begin{itemize}[noitemsep,nolistsep]
+        \item[ ] $\Delta \leftarrow 0$
+        \item[ ] Loop for each $s \in \mathcal{S}$:
+        \begin{itemize}[noitemsep,nolistsep]
+            \item[ ] Loop for each $a \in \mathcal{A}(s)$:
+            \begin{itemize}[noitemsep,nolistsep]
+                \item[ ] $q \leftarrow Q(s, a)$
+                \item[ ] $Q(s, a) \leftarrow \sum_{s', r} p(s', r| s, a) [r + \gamma \sum_{a'} \pi(a'|s') Q^{\pi}(s', a')]$
+                \item[ ] $\Delta \leftarrow max(\Delta, |q - Q(s, a)|)$
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+    until $\Delta < \theta$
+    \end{solutionorlines}
+    \item Now change the Policy Improvement update in terms of $Q^{\pi}(s, a)$ instead of $V^{\pi}(s)$.
+    \begin{solutionorlines}[2in]
+    \ \\
+    Policy Improvement\\
+    \textit{policy-stable} $\leftarrow true$\\
+    For each $s \in \mathcal{S}$:
+    \begin{itemize}[noitemsep,nolistsep]
+        \item[ ] \textit{old-action} $\leftarrow \pi(s)$
+        \item[ ] $\pi(s) \leftarrow \argmax_a \sum_{s', r} p(s', r| s, a) [r + \gamma \sum_{a'} \pi(a'|s') Q^{\pi}(s', a')]$
+        \item[ ] If \textit{old-action} $\neq \pi(s)$, then \textit{policy-stable} $\leftarrow false$
+    \end{itemize}
+    If \textit{policy-stable}, then stop and return $Q \approx q_*$ and $\pi \approx \pi_*$; else go to Policy Evaluation
+    \end{solutionorlines}
+    \item The Value Iteration update, given in the book in Eq. 4.10 can also be rewritten in terms of Q-values. Give the Q-value Iteration update.
+    \begin{solutionorlines}[2in]
+    Note that we are skipping initialization step. \\
+    Loop:
+    \begin{itemize}[noitemsep,nolistsep]
+        \item[ ] $\Delta \leftarrow 0$
+        \item[ ] Loop for each $s \in \mathcal{S}$:
+        \begin{itemize}[noitemsep,nolistsep]
+            \item[ ] Loop for each $a \in \mathcal{A}(s)$:
+            \begin{itemize}[noitemsep,nolistsep]
+                \item[ ] $q \leftarrow Q(s, a)$
+                \item[ ] $Q(s, a) \leftarrow \sum_{s', r} p(s', r| s, a) [r + \gamma \sum_{a'} \pi(a'|s') Q^{\pi}(s', a')]$
+                \item[ ] $\Delta \leftarrow max(\Delta, |q - Q(s, a)|)$
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+    until $\Delta < \theta$\\
+    \\
+    Output a deterministic policy $\pi \approx \pi_*$, such that\\
+    $\pi(s) \leftarrow \argmax_a \sum_{s', r} p(s', r| s, a) [r + \gamma \sum_{a'} \pi(a'|s') Q^{\pi}(s', a')]$
+    \end{solutionorlines}
+\end{enumerate}
+
+\end{problem}
+
+\begin{problem}[Temporal Difference Learning (Application)]
+\ \newline
+\begin{enumerate}
+    \item 
+    What are the state(-action) value estimates $V(s)$ (or $Q(s,a)$) after observing the sample episode when applying:
+    
+    \begin{enumerate}[(a)]
+        \item TD(0)
+        \begin{solutionorlines}[2in]
+            \begin{align*}
+                V(A) &= -0.893\\
+                V(B) &= 0.433
+            \end{align*}
+        \end{solutionorlines}
+        \item 3-step TD
+        \begin{solutionorlines}[2in]
+            \begin{align*}
+                V(A) &= -0.983\\
+                V(B) &= -0.3
+            \end{align*}
+        \end{solutionorlines}
+        \item SARSA
+        \begin{solutionorlines}[2in]
+            \begin{align*}
+                Q(A, 1) &= -0.57\\
+                Q(A, 2) &= -0.43\\
+                Q(B, 1) &= 0.4\\
+                Q(B, 2) &= 0.1
+            \end{align*}
+        \end{solutionorlines}
+        \item Q-learning
+        \begin{solutionorlines}[2in]
+            \begin{align*}
+                Q(A, 1) &= -0.53\\
+                Q(A, 2) &= -0.4\\
+                Q(B, 1) &= 0.4\\
+                Q(B, 2) &= 0.1
+            \end{align*}
+        \end{solutionorlines}
+    \end{enumerate}
+    \item Choose a deterministic policy that you think is better than the random policy given the data. Refer to any of the state(-action) value estimates to explain your reasoning.
+    \begin{solutionorlines}[2in]
+    Using the Q-values, learned in Q-learning algorithm (SARSA produces similar results, so we can use those as well), we can change our policy to be deterministic :
+    \begin{align*}
+        \pi(S=A) = 2\\
+        \pi(S=B) = 1
+    \end{align*}
+    As we can see, such policy gives rise to the highest state-action value among all the possible options. 
+    \end{solutionorlines}
+    \item Let $\pi_{random}$ denote the random policy used so far and $\pi_{student}$ denote the new policy you proposed. Suppose you can draw new sample episodes indefinitely until convergence of the value estimates.
+    \begin{enumerate}[(a)]
+        \item Discuss how do you expect the final value estimates to differ if you ran Q-Learning with  $\pi_{random}$ as compared to $\pi_{student}$.
+        \begin{solutionorlines}[2in]
+        The main reason to use Q-learning is that it is an off-policy algorithm, which means that it uses one policy for exploring and the other one for exploiting the information provided by the exploration to update Q-values. The main consequence of that is that Q-learning convergence can only be proven for the case when \textbf{all} the state-action pairs are continuously updated, which is not the case if we use $\pi_{student}$, which is a greedy policy. Therefore, I would expect that $\pi_{random}$ would converge to real state-action values, while $\pi_{student}$ would not be able to converge to real values as most of the action-state pairs would never be explored enough to estimate anything meaningful. However, if we are interested in a short-term estimation, $\pi_{student}$ can potentially produce good estimation of the pairs $(A, 2)$ and $(B, 1)$ in a short run as they will be visited more often than if we would use $\pi_{random}$. However, this statement highly depends on the transition probabilities of the MDP.
+        % As we can draw new sample episodes indefinitely until convergence of the value estimates, I Would expect $\pi_{random}$ to perform much better as, unlike $\pi_{student}$, it is not deterministic and therefore can provide sufficient exploration. This allows the final state-action values to get really close to the real state-action values. However, it might take much longer to converge than when using $\pi_{student}$, especially, if estimated state-action values are close to the real state-action values. The main reason not to use suggested policy, however, is that it eliminates the advantages of off-policy learning as our  
+        \end{solutionorlines}
+        \item What problems may arise with $\pi_{random}$ or $\pi_{student}$ respectively?
+        \begin{solutionorlines}[2in]
+        The main problem of $\pi_{student}$ has been discussed in the previous subquestion - as it is a greedy policy, it doesn't contribute to the exploration of the state-action values, which is a necessity for a good performance of Q-learning in a long run. 
+        
+        However, in a short term, it might not explore states, which potentially bring the highest expected reward, which is not the case for $\pi_{student}$, which will only explore those. However, $\pi_{student}$ can only provide the forementioned benefit in case the initial estimations were representative and system is stationary as in this case we can already expect the final state-action values not to change much compared to the estimation provided in the previous part of the question.
+        \end{solutionorlines}
+        \item Do you think using an $\epsilon$-greedy policy as behavior policy would be beneﬁcial? Explain why/why not?
+        \begin{solutionorlines}[2in]
+        Using $\epsilon$-greedy policy for the case of $\pi_{student}$ would be highly beneficial as it would eliminate the problem of not sufficient exploration that arises when using previously suggested policy. However, using it for the $\pi_{random}$ depends on the current values of the policy. Assuming that they are uniform (which is the most extreme case of randomness), it would be beneficial as it would allow us not only to explore all the states equally but also to explore states which are known to be good more. However, the closer $\pi_{random}$ is to epsilon-greedy policy, the less benefit changing the policy will give.
+        \end{solutionorlines}
+    \end{enumerate}
+\end{enumerate}
+\end{problem}
 
 \bibliographystyle{plain}
 \bibliography{bibliography}
