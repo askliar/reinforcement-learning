@@ -5,6 +5,8 @@
 \usepackage[shortlabels]{enumitem} %for: being abled to use {enumerate}[a)]
 \usepackage{amsthm}%proof environment
 \usepackage{color}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.9}
 \printanswers
 \newcommand{\matr}[1]{\mathbf{#1}}
 \usepackage{amsfonts}
@@ -72,6 +74,12 @@
 \newcommand{\variance}{\V}
 \let\emptyset\varnothing
 \newcommand{\loss}{\LL}
+\newcommand{\nt}{\nabla_{\theta}}
+\newcommand{\tp}{\theta_{\pi}}
+\newcommand{\ts}{\theta_{\sigma}}
+\newcommand{\tmu}{\theta_{\mu}}
+\newcommand{\pa}{e^{\theta^T \phi_{sa}}}
+\newcommand{\spa}{\sum_b e^{\theta^T \phi_{sb}}}
 \newcommand{\ascalar}{a}
 \newcommand{\bscalar}{b}
 \newcommand{\xscalar}{x}
