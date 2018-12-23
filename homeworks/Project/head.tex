@@ -1,0 +1,258 @@
+%--------------------------------------
+%packages
+\usepackage[margin=1.35in]{geometry}
+\usepackage{amsmath}
+\usepackage[shortlabels]{enumitem} %for: being abled to use {enumerate}[a)]
+\usepackage{amsthm}%proof environment
+\usepackage{color}
+\printanswers
+\newcommand{\matr}[1]{\mathbf{#1}}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{todonotes}
+\usepackage{dsfont}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{algorithm, algpseudocode}
+\usepackage{cleveref}
+\usepackage[compact,explicit]{titlesec}
+\usepackage{caption}
+\usepackage[export]{adjustbox}
+
+\newcommand{\lp}{\left(}
+\newcommand{\rp}{\right)}
+\newcommand{\lb}{\left[}
+\newcommand{\rb}{\right]}
+
+\newcommand{\norm}[1]{\|#1\|}
+\newcommand{\likelihood}{\mathcal{L}}
+\usepackage{cancel}
+\newcommand{\bishop}[1]{Bishop #1}
+\newcommand{\newword}[1]{{\bf #1}}
+\newcommand{\Data}{\mathcal{D}}
+\newcommand{\Model}{\mathcal{M}}
+\newcommand{\DataTrain}{\mathcal{D}{{\text train}}}
+\newcommand{\DataTest}{\mathcal{D}{{\text test}}}
+\newcommand{\N}{N}
+\newcommand{\Ntrain}{\N_{train}}
+\newcommand{\Ntest}{\N_{test}}
+\newcommand{\DataSize}{\N}
+\newcommand{\DataIndex}{n}
+\newcommand{\cind}{t}
+\newcommand{\pind}{\star}
+
+\newcommand{\eye}{{\bf I}}
+
+\newcommand{\Dim}{D}
+\newcommand{\DimIndex}{d}
+
+\newcommand{\DimOut}{K}
+\newcommand{\DimOutIndex}{k}
+\newcommand{\Identity}{\mathds{1}}
+\newcommand{\wavep}{\widetilde{p}}
+\newcommand{\waveq}{\widetilde{q}}
+\newcommand{\intphi}{\int_{\phivec}}
+\newcommand{\inttheta}{\int_{\thetavec}}
+\DeclareMathOperator*{\E}{\mathbb{E}}
+\DeclareMathOperator*{\ED}{\mathbb{E}_{\Data}}
+\DeclareMathOperator*{\V}{\mathbb{V}}
+\DeclareMathOperator*{\LL}{L}
+\DeclareMathOperator\erf{erf}
+\DeclareMathOperator\trace{tr}
+\DeclareMathOperator\median{median}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\R}{\mathbb{R}}
+
+
+\newcommand{\expectation}{\E}
+\newcommand{\expectationdata}{\ED}
+\newcommand{\variance}{\V}
+\let\emptyset\varnothing
+\newcommand{\loss}{\LL}
+\newcommand{\ascalar}{a}
+\newcommand{\bscalar}{b}
+\newcommand{\xscalar}{x}
+\newcommand{\avec}{{\bf \ascalar}}
+\newcommand{\bvec}{{\bf \bscalar}}
+\newcommand{\xvec}{{\bf \xscalar}}
+\newcommand{\xvectest}{\xvec_{\star}}
+\newcommand{\Xmat}{{\bf \MakeUppercase\xscalar}}
+\newcommand{\tscalar}{t}
+\newcommand{\ttest}{\tscalar_{\star}}
+\newcommand{\tvec}{{\bf \tscalar}}
+\newcommand{\Tmat}{{\bf \MakeUppercase\tscalar}}
+\newcommand{\yscalar}{y}
+\newcommand{\yvec}{{\bf \yscalar}}
+\newcommand{\Ymat}{{\bf \MakeUppercase\yscalar}}
+\newcommand{\wscalar}{w}
+\newcommand{\wvec}{{\bf \wscalar}}
+\newcommand{\wvecopp}{\wvec^{(-i)}}
+\newcommand{\wvecML}{\wvec_{\text{MLE}}}
+\newcommand{\wvecMAP}{\wvec_{\text{MAP}}}
+\newcommand{\wvecs}{\wvec^{(s)}}
+\newcommand{\Wmat}{{\bf \MakeUppercase\wscalar}}
+\newcommand{\wbias}{\wscalar_0}
+\newcommand{\xn}{\xscalar_{\DataIndex}}
+\newcommand{\xvecn}{\xvec_{\DataIndex}}
+\newcommand{\tvecn}{\tvec_{\DataIndex}}
+\newcommand{\tn}{\tscalar_{\DataIndex}}
+\newcommand{\ti}{\tscalar_{i}}
+\newcommand{\yvecn}{\yvec_{\DataIndex}}
+\newcommand{\yn}{\yscalar_{\DataIndex}}
+\newcommand{\yfunc}{\yscalar}
+\newcommand{\yfunctest}{\yfunc_{\star}}
+
+\newcommand{\zerovec}{ {\bf 0}}
+\newcommand{\pivec}{\boldsymbol{\pi}}
+\newcommand{\muvec}{\boldsymbol{\mu}}
+\newcommand{\muvecN}{\boldsymbol{\mu}_{\N}}
+\newcommand{\munotvec}{\muvec_0}
+\newcommand{\mnot}{{\bf m_0}}
+\newcommand{\mN}{{\bf m}_{\N}}
+\newcommand{\mNplus}{{\bf m}_{\N+1}}
+\newcommand{\etavec}{\boldsymbol{\eta}}
+\newcommand{\tauvec}{\boldsymbol{\tau}}
+\newcommand{\tauinv}{\tau^{-1}}
+\newcommand{\thetavec}{\boldsymbol{\theta}}
+\newcommand{\thetav}{\thetavec}
+\newcommand{\phivec}{\boldsymbol{\phi}}
+\newcommand{\Thetamat}{\boldsymbol{\Theta}}
+\newcommand{\Gammamat}{\boldsymbol{\Gamma}}
+\newcommand{\Gammamatinv}{\Gammamat^{-1}}
+\newcommand{\phivectest}{\phivec_{\star}}
+\newcommand{\Phimat}{\boldsymbol{\Phi}}
+\newcommand{\phivv}{\phivec}
+\newcommand{\phivecn}{\phivec_{\DataIndex}}
+\newcommand{\phiveci}{\phivec_{i}}
+\newcommand{\Sigmamat}{\boldsymbol{\Sigma}}
+\newcommand{\SigmamatN}{\Sigmamat_N}
+\newcommand{\Sigmamatnot}{\Sigmamat_0}
+\newcommand{\Sigmamatinv}{\Sigmamat^{-1}}
+\newcommand{\Smat}{{\bf S}}
+\newcommand{\SmatN}{\Smat_{\N}}
+\newcommand{\Smatnot}{\Smat_0}
+\newcommand{\Smatinv}{\Smat^{-1}}
+\newcommand{\SmatNplus}{\Smat_{\N+1}}
+\newcommand{\SmatNplusinv}{\Smat_{\N+1}^{-1}}
+\newcommand{\Betafunc}{\mathcal{B}}
+\newcommand{\G}{\mathcal{G}}
+
+\newcommand{\betatest}{\beta_{\star}}
+\newcommand{\Amat}{{\bf A}}
+\newcommand{\prodnn}{\prod_{n=1}^N}
+\newcommand{\prodkk}{\prod_{k=1}^K}
+\newcommand{\prodid}{\prod_{i=1}^D}
+\newcommand{\proddd}{\prod_{d=1}^D}
+\newcommand{\prodiK}{\prod_{i=1}^K}
+\newcommand{\sumnn}{\sum_{n=1}^N}
+\newcommand{\sumkk}{\sum_{k=1}^K}
+\newcommand{\sumw}{\sum_{w}}
+\newcommand{\sumww}{\sumw^W}
+\newcommand{\sumid}{\sum_{i=1}^D}
+\newcommand{\sumiK}{\sum_{i=1}^K}
+\newcommand{\znk}{z_{nk}}
+\newcommand{\xni}{x_{ni}}
+\newcommand{\muki}{\mu_{ki}}
+\newcommand{\Bmat}{{\bf B}}
+\newcommand{\Cmat}{{\bf C}}
+\newcommand{\Dmat}{{\bf D}}
+\newcommand{\Emat}{{\bf E}}
+\newcommand{\Fmat}{{\bf F}}
+\newcommand{\Gmat}{{\bf G}}
+\newcommand{\Hmat}{{\bf H}}
+\newcommand{\Imat}{{\bf I}}
+\newcommand{\Jmat}{{\bf J}}
+\newcommand{\Kmat}{{\bf K}}
+\newcommand{\Lmat}{{\bf L}}
+\newcommand{\Mmat}{{\bf M}}
+\newcommand{\Nmat}{{\bf N}}
+\newcommand{\Omat}{{\bf O}}
+\newcommand{\Pmat}{{\bf P}}
+\newcommand{\Qmat}{{\bf Q}}
+\newcommand{\Rmat}{{\bf R}}
+%\newcommand{\Smat}{{\bf S}}
+%\newcommand{\Tmat}{{\bf T}}
+\newcommand{\Umat}{{\bf U}}
+\newcommand{\Vmat}{{\bf V}}
+%\newcommand{\Wmat}{{\bf W}}
+%\newcommand{\Xmat}{{\bf X}}
+%\newcommand{\Ymat}{{\bf Y}}
+\newcommand{\Zmat}{{\bf Z}}
+
+\makeatletter
+\newcommand*{\indep}{%
+  \mathbin{%
+    \mathpalette{\@indep}{}%
+  }%
+}
+\newcommand*{\nindep}{%
+  \mathbin{%                   % The final symbol is a binary math operator
+    \mathpalette{\@indep}{\not}% \mathpalette helps for the adaptation
+                               % of the symbol to the different math styles.
+  }%
+}
+\newcommand*{\@indep}[2]{%
+  % #1: math style
+  % #2: empty or \not
+  \sbox0{$#1\perp\m@th$}%        box 0 contains \perp symbol
+  \sbox2{$#1=$}%                 box 2 for the height of =
+  \sbox4{$#1\vcenter{}$}%        box 4 for the height of the math axis
+  \rlap{\copy0}%                 first \perp
+  \dimen@=\dimexpr\ht2-\ht4-.2pt\relax
+      % The equals symbol is centered around the math axis.
+      % The following equations are used to calculate the
+      % right shift of the second \perp:
+      % [1] ht(equals) - ht(math_axis) = line_width + 0.5 gap
+      % [2] right_shift(second_perp) = line_width + gap
+      % The line width is approximated by the default line width of 0.4pt
+  \kern\dimen@
+  {#2}%
+      % {\not} in case of \nindep;
+      % the braces convert the relational symbol \not to an ordinary
+      % math object without additional horizontal spacing.
+  \kern\dimen@
+  \copy0 %                       second \perp
+} 
+\makeatother
+
+\newcommand{\rvec}{{\bf r}}
+\newcommand{\betavec}{{\boldsymbol{\beta}}}
+\newcommand{\alphavec}{{\boldsymbol{\alpha}}}
+\newcommand{\zvec}{{\bf z}}
+\newcommand{\zvecn}{{\zvec_n}}
+\newcommand{\zvecopp}{{\bf z}^{(-i)}}
+\newcommand{\dvec}{{\bf d}}
+\newcommand{\lvec}{{\bf l}}
+\newcommand{\mvec}{{\bf m}}
+\newcommand{\uvec}{{\bf u}}
+\newcommand{\vvec}{{\bf v}}
+
+\newcommand{\X}{\mathcal{X}}
+
+\newcommand{\xvecmean}{\bar{\xvec}}
+\newcommand{\xvecnest}{\tilde{\xvec}_n}
+\newcommand{\xvecestn}{\xvecnest}
+\newcommand{\class}{\mathcal{C}}
+\newcommand{\gaus}{\mathcal{N}}
+\newcommand{\Q}{\mathcal{Q}}
+\newcommand{\sigmoid}{\sigma}
+
+\newtheoremstyle{problemstyle}  % <name>
+        {1pt}               % <space above>
+        {1pt}             % <space below>
+        {\normalfont}   % <body font>
+        {}              % <indent amount}
+        {\bfseries}
+        {\normalfont\bfseries:}         % <punctuation after theorem head>
+        {.5em}  % <space after theorem head>
+        {}  % <theorem head spec (can be left empty, meaning `normal')>
+\theoremstyle{problemstyle}{}
+
+
+\newtheorem{problem}{Problem}
+\usepackage{tkz-graph}
+\usepackage{tikz}
+\usetikzlibrary{bayesnet}
