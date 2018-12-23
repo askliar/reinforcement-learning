@@ -30,7 +30,7 @@ Main topics: **Value-function approximation** (Semi-gradient methods, Linear val
 
 <p align="center">
   <img src="https://cdn.pbrd.co/images/HT5RuUH.png" width="500" /><br />
-  <b>Figure: </b><i>Performance of Monte Carlo method on <a href src="http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching_files/Easy21-Johannes.pdf">Easy21</a></i>
+  <b>Figure: </b><i>Performance of Every-visit Monte Carlo on <a href src="http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching_files/Easy21-Johannes.pdf">Easy21</a></i>
   <br />
   <br />
   <img src="https://cdn.pbrd.co/images/HT5TUSD.png" width="500" /><br />
