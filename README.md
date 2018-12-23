@@ -6,7 +6,7 @@
 
 Homeworks and labs of the [Reinforcement Learning](http://studiegids.uva.nl/xmlpages/page/2018-2019/zoek-vak/vak/63460) course of the MSc in Artificial Intelligence at the University of Amsterdam. Joint project of [Andrii Skliar](github.com/askliar) and [Gabriele Bani](https://github.com/Hiryugan).
 
-Both homeworks and labs are heavily based on [Reinforcement Learning: An Introduction, 2nd Edition](https://drive.google.com/file/d/1opPSz5AZ_kVa1uWOdOiveNiBFiEOHjkG/view) by Richard S. Sutton and Andrew G. Barto and [A Survey on Policy Search for Robotics](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=2ahUKEwiEn6n1wLbfAhVKDiwKHV80BdEQFjAAegQIDhAC&url=https%3A%2F%2Fwww.nowpublishers.com%2Farticle%2FDownloadSummary%2FROB-021&usg=AOvVaw3voyHaGYfgkIFMNbolULeK) by Marc Peter Deisenroth, Gerhard Neumann and Jan Peters.
+Both homeworks and labs are heavily based on [Reinforcement Learning: An Introduction, 2nd Edition](https://mitpress.mit.edu/books/reinforcement-learning-second-edition) by Richard S. Sutton and Andrew G. Barto and [A Survey on Policy Search for Robotics](https://www.nowpublishers.com/article/Details/ROB-021) by Marc Peter Deisenroth, Gerhard Neumann and Jan Peters.
 
 ## Homeworks
 
