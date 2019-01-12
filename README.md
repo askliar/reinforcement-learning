@@ -10,13 +10,13 @@ Both homeworks and labs are heavily based on [Reinforcement Learning: An Introdu
 
 ## Homeworks
 
-##### Tabular Solution Methods 
+#### Tabular Solution Methods 
 
 [Problem statement](https://github.com/askliar/reinforcement-learning/blob/master/homeworks/homework1/homework1.pdf) - [Solution](https://github.com/askliar/reinforcement-learning/blob/master/homeworks/homework1/homework1_sol.pdf)
 
 Main topics: **Bandits**, **Dynamic Programming**, **Monte Carlo methods**, **TD-methods** (TD, SARSA, Q-Learning), **Model-based Learning** (Dyna, Monte Carlo Tree Search).
  
-##### Approximate Solution Methods
+#### Approximate Solution Methods
 
 [Problem statement](https://github.com/askliar/reinforcement-learning/blob/master/homeworks/homework2/homework2.pdf) - [Solution](https://github.com/askliar/reinforcement-learning/blob/master/homeworks/homework2/homework2_sol.pdf)
 
@@ -24,7 +24,7 @@ Main topics: **Value-function approximation** (Semi-gradient methods, Linear val
 
 ## Labs
 
-##### Tabular Solution Methods 
+#### Tabular Solution Methods 
 
 [Problem statement and Solution](https://github.com/askliar/reinforcement-learning/blob/master/labs/lab1/lab1_sol.ipynb)
 
@@ -37,7 +37,7 @@ Main topics: **Value-function approximation** (Semi-gradient methods, Linear val
   <b>Figure: </b><i>Performance of Sarsa and Q-learning on <a href src="http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching_files/Easy21-Johannes.pdf">Easy21</a></i>
 </p>
 
-##### Approximate Solution Methods
+#### Approximate Solution Methods
 
 
 [Problem statement and Solution](https://github.com/askliar/reinforcement-learning/blob/master/labs/lab2/lab2_sol.ipynb)
