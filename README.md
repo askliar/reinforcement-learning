@@ -54,4 +54,10 @@ Refer to each notebook name and run Jupyter notebook with a following command:
 jupyter notebook #notebook#.ipynb
 ```
 
-Note, that you can also launch all of the labs in Google Colab using link button in the beginning of the notebook with *colab* suffix.
+## Copyright
+
+Copyright © 2018 Andrii Skliar.
+
+<p align=“justify”>
+This project is distributed under the <a href="LICENSE">MIT license</a>. This was developed as part of the Reinforcement Learning course taught by Herke van Hoof at the University of Amsterdam. Please follow the <a href="http://student.uva.nl/en/content/az/plagiarism-and-fraud/plagiarism-and-fraud.html">UvA regulations governing Fraud and Plagiarism</a> in case you are a student.
+</p>
