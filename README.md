@@ -29,11 +29,11 @@ Main topics: **Value-function approximation** (Semi-gradient methods, Linear val
 [Problem statement and Solution](https://github.com/askliar/reinforcement-learning/blob/master/labs/lab1/lab1_sol.ipynb)
 
 <p align="center">
-  <img src="https://cdn.pbrd.co/images/HT5RuUH.png" width="500" /><br />
+  <img src="https://lh3.googleusercontent.com/6Bz-RxrhW3J_hupoexFBLfoOzGXx2Kc1VvvFsFWC4i3xBw5NIDwYGeA4a_v_YREqv1C47H5EbWx3ZOqd_7PumPXFyENpCS6UMi7pmomDlscYlpUtg2l12AyZiyWqIP2-bhQ9kcEVgTc=w2400" width="500" /><br />
   <b>Figure: </b><i>Performance of Every-visit Monte Carlo on <a href src="http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching_files/Easy21-Johannes.pdf">Easy21</a></i>
   <br />
   <br />
-  <img src="https://cdn.pbrd.co/images/HT5TUSD.png" width="500" /><br />
+  <img src="https://lh3.googleusercontent.com/8_AkYTsjkN04zibiFhiaxoutNt1tpP-mSGtJgpAinIbn8CP9Wlfhx-QMAq_FtyEXAAJb7VSvLFf8gW9bvPxcD-1s0Nrgz_DAJ-qaYrLTjpVraTPY1nu_GP3MtxFyxUA4k-6TWrtPSw4=w2400" width="500" /><br />
   <b>Figure: </b><i>Performance of Sarsa and Q-learning on <a href src="http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching_files/Easy21-Johannes.pdf">Easy21</a></i>
 </p>
 
@@ -43,7 +43,7 @@ Main topics: **Value-function approximation** (Semi-gradient methods, Linear val
 [Problem statement and Solution](https://github.com/askliar/reinforcement-learning/blob/master/labs/lab2/lab2_sol.ipynb)
 
 <p align="center">
-  <img src="https://cdn.pbrd.co/images/HT61qOY.png" width="900" /><br />
+  <img src="https://lh3.googleusercontent.com/hSxpIu3jzT1zvFF1zl7utrCFOvhLpbLfE6vOqIzZmtR5alThixhB5Cftw3B-e4YZgeSvo52G6K1IYOi7cVmsSSmTJdp-r_nx3adCexEGYKeeItyLbbOIkCwRsCo7VcM6acm0-Tp9wK0=w2400" width="900" /><br />
   <b>Figure: </b><i>Performance of A2C (left), DQN (middle) and REINFORCE (right) on <a href src="https://gym.openai.com/envs/CartPole-v0/"> CartPole </a></i>
 </p>
 
